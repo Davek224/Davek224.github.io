@@ -9,14 +9,20 @@ if ! [ -x "$(command -v npm)" ]; then
     echo 'Installing npm ...' >&2
     /usr/local/bin/brew install node
 fi
+
 export NPM_ROOT=`npm root -g`
 export NPM_BIN=`echo $NPM_ROOT | sed 's/lib\/node_modules/bin/g'`
 
+export NVM_DIR=$HOME/.nvm;
+source $NVM_DIR/nvm.sh;
+nvm install --lts
+nvm use --lts
+
 if ! [ -x "$(command -v browser-sync)" ]; then
     echo 'Installing browser-sync ...' >&2
-    "$NPM_BIN"/npm install -g browser-sync
+    
+    npm install -g browser-sync
 fi
 
 export LOCAL_IP=`ipconfig getifaddr en0`
-
-"$NPM_BIN"/browser-sync start -s -f . --no-notify --host $LOCAL_IP --port 99
+browser-sync start -s -f . --no-notify --host $LOCAL_IP --port 99

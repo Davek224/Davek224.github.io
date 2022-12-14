@@ -39,8 +39,8 @@ function login(userInfo = {}) {
 
 }
 
-const emailCookie = "dror.kedem@pendo.io";
-const departmentCookie = "Front End";
+const emailCookie = "VISITOR-UNIQUE-ID";
+const departmentCookie = "ACCOUNT-UNIQUE-ID";
 
 let email = getCookie(emailCookie);
 let department = getCookie(departmentCookie);
