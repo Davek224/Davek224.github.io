@@ -10,15 +10,15 @@
 // })('8d8c765b-239b-4fc9-5418-921143a0c448');
 
 
-let apiKey = new URLSearchParams(window.location.search).get("apikey");
-apiKey = apiKey || 'someDefaultApiKey';
-(function(apiKey){
-    (function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=o._q||[];
-        v=['initialize','identify','updateOptions','pageLoad','track'];for(w=0,x=v.length;w<x;++w)(function(m){
-            o[m]=o[m]||function(){o._q[m===v[0]?'unshift':'push']([m].concat([].slice.call(arguments,0)));};})(v[w]);
-        y=e.createElement(n);y.async=!0;y.src='https://pendo-dev-static.storage.googleapis.com/agent/static/'+apiKey+'/pendo.js';
-        z=e.getElementsByTagName(n)[0];z.parentNode.insertBefore(y,z);})(window,document,'script','pendo');
-})(apiKey);
+let appKey = new URLSearchParams(window.location.search).get("apikey");
+    (function(apiKey){
+        (function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=o._q||[];
+            v=['initialize','identify','updateOptions','pageLoad','track'];for(w=0,x=v.length;w<x;++w)(function(m){
+                o[m]=o[m]||function(){o._q[m===v[0]?'unshift':'push']([m].concat([].slice.call(arguments,0)));};})(v[w]);
+            y=e.createElement(n);y.async=!0;y.src='https://staging-cdn.pendo-dev.com/agent/static/'+apiKey+'/pendo.js';
+            z=e.getElementsByTagName(n)[0];z.parentNode.insertBefore(y,z);})(window,document,'script','pendo');
+    })(appKey);
+
 
 
     // This function creates anonymous visitor IDs in Pendo unless you change the visitor id field to use your app's values
@@ -27,7 +27,7 @@ apiKey = apiKey || 'someDefaultApiKey';
     // Please use Strings, Numbers, or Bools for value types.
     pendo.initialize({
         visitor: {
-            id:              'VISITOR-UNIQUE-ID112'   // Required if user is logged in, default creates anonymous ID
+            id:              'VISITOR-UNIQUE-ID2'   // Required if user is logged in, default creates anonymous ID
             // email:        // Recommended if using Pendo Feedback, or NPS Email
             // full_name:    // Recommended if using Pendo Feedback
             // role:         // Optional
