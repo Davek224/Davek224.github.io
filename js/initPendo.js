@@ -25,9 +25,10 @@ let appKey = new URLSearchParams(window.location.search).get("apikey");
     // This function uses the placeholder 'ACCOUNT-UNIQUE-ID' value for account ID unless you change the account id field to use your app's values
     // Call this function in your authentication promise handler or callback when your visitor and account id values are available
     // Please use Strings, Numbers, or Bools for value types.
+    let visitorId = new URLSearchParams(window.location.search).get("visitorId");
     pendo.initialize({
         visitor: {
-            id:              'VISITOR-UNIQUE-ID2'   // Required if user is logged in, default creates anonymous ID
+            id:              visitorId  // Required if user is logged in, default creates anonymous ID
             // email:        // Recommended if using Pendo Feedback, or NPS Email
             // full_name:    // Recommended if using Pendo Feedback
             // role:         // Optional
