@@ -12,6 +12,7 @@
 
 let apiKey = new URLSearchParams(window.location.search).get("apikey");
 let envSource = new URLSearchParams(window.location.search).get("src");
+let visitorId = new URLSearchParams(window.location.search).get("visitorId");
 (function(apiKey){
     (function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=o._q||[];
     v=['initialize','identify','updateOptions','pageLoad','track'];for(w=0,x=v.length;w<x;++w)(function(m){
@@ -35,7 +36,7 @@ let envSource = new URLSearchParams(window.location.search).get("src");
     // Please use Strings, Numbers, or Bools for value types.
     pendo.initialize({
         visitor: {
-            id:              12321232  // Required if user is logged in, default creates anonymous ID
+            id:              visitorId  // Required if user is logged in, default creates anonymous ID
             // email:        // Recommended if using Pendo Feedback, or NPS Email
             // full_name:    // Recommended if using Pendo Feedback
             // role:         // Optional
